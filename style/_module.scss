@@ -1,0 +1,121 @@
+.container {
+  padding-left: 16px;
+  padding-right: 16px;
+
+  @include tablet {
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  @include desktop {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 1320px;
+  }
+
+  &--row {
+    padding-top: 64px;
+    padding-bottom: 64px;
+
+    @include desktop {
+      padding-top: 104px;
+      padding-bottom: 104px;
+    }
+  }
+}
+
+.page-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__subtitle {
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: var(--text-primary);
+  }
+
+  &__title {
+    font-family: var(--secondary-font);
+    font-size: 52px;
+    line-height: 1.5;
+
+    @include gradientText;
+    @include desktop {
+      font-size: 64px;
+    }
+  }
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #ffffff99;
+  border-radius: 9999px;
+  padding: 16px 24px;
+  color: var(--text-primary);
+  background-color: #f1f5f9;
+
+  &--light {
+    background-color: #ffffff;
+    border-color: #ffffff99;
+  }
+
+  &--primary {
+    border-color: #ffffff99;
+    color: #ffffff;
+    background-color: var(--color-primary);
+  }
+
+  &__text {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  &__icon {
+    font-size: 32px;
+  }
+}
+
+.row {
+  --gutter-x: 24px;
+  --gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--gutter-y));
+  margin-left: calc(-0.5 * var(--gutter-x));
+  margin-right: calc(-0.5 * var(--gutter-x));
+
+  > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    margin-top: var(--gutter-y);
+    padding-left: calc(var(--gutter-x) * 0.5);
+    padding-right: calc(var(--gutter-x) * 0.5);
+  }
+
+  > .col {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+
+  > .col-tablet-6 {
+    @include tablet {
+      width: 50%;
+    }
+  }
+
+  > .col-desktop-4 {
+    @include desktop {
+      width: 33.33%;
+    }
+  }
+}

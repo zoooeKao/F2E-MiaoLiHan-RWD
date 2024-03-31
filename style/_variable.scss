@@ -1,0 +1,43 @@
+/*# sourceMappingURL=variable.css.map */
+$break-point-tablet: 768px;
+$break-point-desktop: 1400px;
+
+:root {
+  --primary-gradient: linear-gradient(to right, #e5793b, #ff4185);
+  --color-primary: #da7d4a;
+  --text-primary: #334155;
+  --text-secondary: #64748b;
+  --text-third: #94a3b8;
+  --bg-color-theme1: #fdfcfb;
+  --bg-color-theme2: #f7ece1;
+  --primary-font: 'Noto Sans TC', sans-serif;
+  --secondary-font: 'secondary-font';
+}
+
+@mixin tablet {
+  @media (min-width: $break-point-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $break-point-desktop) {
+    @content;
+  }
+}
+
+@mixin gradientText {
+  // 文字漸層色
+  background: var(--primary-gradient);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

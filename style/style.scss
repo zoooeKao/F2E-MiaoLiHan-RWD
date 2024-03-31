@@ -1,0 +1,727 @@
+// 檔案命名有下底線是為了不要被編譯打包
+
+// theme
+@import './_variable.scss';
+// base
+@import './_reset.scss';
+@import './_base.scss';
+// module
+@import './_module.scss';
+// layout
+@import './_layout.scss';
+
+.banner {
+  // 為了讓 banner-links 定位
+  position: relative;
+  padding-top: 32px;
+  background-color: #ffffff;
+
+  &__slogan {
+    padding-bottom: 16px;
+    font-family: var(--secondary-font);
+    font-size: 52px;
+    letter-spacing: 2px;
+    text-align: center;
+
+    @include desktop {
+      font-size: 96px;
+    }
+
+    @include gradientText;
+  }
+
+  &__slogan-br {
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__slogan-white-space {
+    @include desktop {
+      display: inline-block;
+    }
+  }
+
+  &__img {
+    text-align: center;
+  }
+
+  &__img-people {
+    display: block;
+    width: 327px;
+    margin: 0 auto;
+    // 為了首次渲染尚未知道高度時，依造原始圖片的比例事先讓瀏覽器預留高度，避免圖片下方的資料向上跑
+    aspect-ratio: 723 / 538;
+
+    @include tablet {
+      width: 343px;
+    }
+
+    @include desktop {
+      width: 723px;
+    }
+  }
+}
+
+.banner-links {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 16px;
+  justify-content: center;
+  padding: 8px 40px;
+  border-radius: 12px;
+  box-shadow: 0px 1px 4px 0px #0000001a;
+  background-color: #ffffff;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.banner-candidate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  @include desktop {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    border-radius: 16px;
+    padding: 12px 16px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 20px;
+    background-color: var(--text-primary);
+
+    @include desktop {
+      font-size: 28px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    border: 1px solid #ffffff;
+    border-radius: 16px;
+    background-color: #ffffff;
+    opacity: 90%;
+    box-shadow: 0px 4px 12px 0px #a3b4cb33;
+  }
+
+  &__num-wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 99999px;
+    background: var(--primary-gradient);
+  }
+
+  &__num {
+    position: absolute;
+    // 減 2px 是為了微調 3 無法置中
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 900;
+  }
+
+  &__name {
+    color: var(--color-primary);
+    font-size: 28px;
+    font-weight: 700;
+
+    @include desktop {
+      font-size: 40px;
+    }
+  }
+}
+
+.marquee {
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--color-primary);
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &__p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 25s linear infinite;
+    font-family: var(--secondary-font);
+    font-size: 40px;
+    letter-spacing: 2px;
+
+    @include desktop {
+      font-size: 64px;
+    }
+  }
+}
+
+.advocate {
+  background-color: var(--bg-color-theme2);
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: 32px;
+    background-color: #ffffff;
+    // 解決圖片圓角凸出問題
+    overflow: hidden;
+    width: 100%;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 24px;
+    }
+  }
+
+  &__first {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px 24px;
+
+    @include desktop {
+      padding: 64px 40px;
+      flex: 1;
+    }
+  }
+
+  &__slogan {
+    color: var(--text-primary);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.5;
+
+    @include desktop {
+      font-size: 28px;
+    }
+
+    &--highlight {
+      color: var(--color-primary);
+    }
+  }
+
+  &__content {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--text-primary);
+
+    @include desktop {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+
+  &__second {
+    @include desktop {
+      flex: 1;
+    }
+  }
+
+  &__second-img {
+    display: block;
+    aspect-ratio: 648 / 462;
+    width: 100%;
+
+    @include desktop {
+      height: 100%;
+      aspect-ratio: unset;
+      object-fit: cover;
+    }
+  }
+}
+
+.latest-event {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 40px;
+
+    @include desktop {
+      flex-direction: row;
+      margin-top: 64px;
+    }
+  }
+
+  &__section {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    @include desktop {
+      flex: 1;
+    }
+  }
+
+  &__item {
+    display: flex;
+    gap: 16px;
+
+    &--large {
+      flex-direction: column;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 109px;
+    height: 112px;
+    border-radius: 8px;
+    object-fit: cover;
+
+    @include desktop {
+      width: 201px;
+      height: 134px;
+    }
+
+    &--large {
+      width: 100%;
+      height: 241px;
+      border-radius: 16px;
+
+      @include tablet {
+        height: 443px;
+      }
+
+      @include desktop {
+        height: 407px;
+      }
+    }
+  }
+
+  &__item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    line-height: 1.5;
+  }
+
+  &__date {
+    font-size: 14px;
+    color: var(--text-third);
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+
+    &--large {
+      font-size: 20px;
+    }
+  }
+
+  &__content {
+    font-size: 14px;
+    // 文字過長省略符號
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @include desktop {
+      font-size: 16px;
+    }
+
+    &--large {
+      display: block;
+      -webkit-line-clamp: unset;
+      -webkit-box-orient: unset;
+      overflow: unset;
+
+      font-size: 16px;
+    }
+  }
+}
+
+.policy__wrapper {
+  padding-top: 40px;
+
+  @include tablet {
+    padding-top: 80px;
+  }
+
+  @include desktop {
+    padding-top: 64px;
+  }
+}
+
+.policy-issue {
+  background-color: #fdfcfb;
+
+  &__row {
+    --gutter-y: 64px;
+
+    @include tablet {
+      --gutter-x: 24px;
+    }
+
+    @include desktop {
+      --gutter-x: 64px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include desktop {
+      height: 100%;
+      justify-content: space-between;
+    }
+  }
+
+  &__txt {
+    padding: 16px;
+    padding-top: 0;
+    color: var(--text-primary);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  &__img {
+    display: block;
+    aspect-ratio: 343 / 229;
+    border-radius: 16px;
+    object-fit: cover;
+    width: 100%;
+
+    @include tablet {
+      border-radius: 24px;
+    }
+  }
+}
+
+.donate {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-content: stretch;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 32px;
+
+    @include tablet {
+      flex: 1;
+    }
+    @include desktop {
+      padding: 96px;
+    }
+
+    &:nth-child(1) {
+      background-color: var(--color-primary);
+    }
+
+    &:nth-child(2) {
+      background-color: var(--text-primary);
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    color: #ffffff;
+    font-family: var(--secondary-font);
+    font-size: 40px;
+    line-height: 1.5;
+
+    @include desktop {
+      font-size: 52px;
+    }
+  }
+
+  &__txt {
+    margin-bottom: 24px;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  &__material {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+
+  &__button {
+    flex-shrink: 0;
+  }
+
+  &__img {
+    width: 135px;
+    aspect-ratio: 1 / 1;
+
+    @include tablet {
+      width: 128px;
+    }
+
+    @include desktop {
+      width: 224px;
+    }
+  }
+}
+
+.last-page {
+  margin: 104px 0;
+  text-align: center;
+
+  &__slogan {
+    font-family: var(--secondary-font);
+    font-size: 52px;
+    letter-spacing: 2px;
+    @include gradientText;
+
+    @include desktop {
+      font-size: 64px;
+      line-height: 1.5;
+    }
+
+    &--br {
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: inline-flex;
+    gap: 8px;
+    padding-top: 24px;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop {
+      gap: 16px;
+      padding-top: 16px;
+      padding: 12px 16px;
+      background-color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0px 4px 12px 0px #f3f8ff;
+      border-radius: 16px;
+    }
+  }
+
+  &__num-wrapper {
+    position: relative;
+    width: 33px;
+    height: 33px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+
+    @include desktop {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  &__num {
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 2px);
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 1.5;
+    color: #ffffff;
+
+    @include desktop {
+      font-size: 32px;
+    }
+  }
+
+  &__name {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: var(--color-primary);
+
+    @include desktop {
+      font-size: 40px;
+    }
+  }
+}
+
+.footer {
+  background-color: var(--bg-color-theme2);
+  margin-bottom: 68px;
+
+  @include desktop {
+    margin-bottom: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include desktop {
+      flex-direction: row;
+      gap: 16px;
+    }
+  }
+
+  &__intro {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__links {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: #ffffff;
+    border-radius: 50%;
+  }
+
+  &__link-img {
+    width: 32px;
+    height: 32px;
+  }
+
+  &__copyright {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__info {
+    flex: 1;
+  }
+
+  &__headquarter {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 700;
+    padding-bottom: 16px;
+  }
+
+  &__headquarter-txt {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  &__headquarter-a {
+    color: var(--text-primary);
+  }
+}
+
+.candidate {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    @include desktop {
+      gap: 16px;
+    }
+  }
+  &__num-wrapper {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+  }
+  &__num {
+    position: absolute;
+    top: calc(50% - 2px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: 900;
+    color: #ffffff;
+  }
+  &__name {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-primary);
+  }
+}
+
+.nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 68px;
+  padding: 0 8px;
+  background-color: rgb(255, 255, 255, 0.9);
+  border: 1px solid #f8fafc;
+
+  @include desktop {
+    display: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 65px;
+    font-size: 10px;
+
+    @include tablet {
+      width: 144px;
+    }
+  }
+
+  &__img {
+    width: 24px;
+    aspect-ratio: 1 / 1;
+  }
+
+  &__txt {
+    color: var(--text-primary);
+  }
+}
