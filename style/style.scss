@@ -376,10 +376,7 @@
 
   &__row {
     --gutter-y: 64px;
-
-    @include tablet {
-      --gutter-x: 24px;
-    }
+    --gutter-x: 24px;
 
     @include desktop {
       --gutter-x: 64px;

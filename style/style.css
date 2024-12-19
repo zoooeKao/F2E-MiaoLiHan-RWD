@@ -6,8 +6,8 @@
   --text-third: #94a3b8;
   --bg-color-theme1: #fdfcfb;
   --bg-color-theme2: #f7ece1;
-  --primary-font: 'Noto Sans TC', sans-serif;
-  --secondary-font: 'secondary-font';
+  --primary-font: "Noto Sans TC", sans-serif;
+  --secondary-font: "secondary-font";
 }
 
 @keyframes marquee {
@@ -140,7 +140,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
@@ -150,7 +150,7 @@ table {
 }
 
 @font-face {
-  font-family: 'secondary-font';
+  font-family: "secondary-font";
   src: url(../assets/MantouSans-Regular.ttf);
 }
 * {
@@ -220,7 +220,7 @@ img {
   line-height: 1.5;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
-  background-clip: text;
+          background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 @media (min-width: 1400px) {
@@ -259,8 +259,6 @@ img {
 }
 
 .row {
-  --gutter-x: 24px;
-  --gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--gutter-y));
@@ -320,7 +318,7 @@ img {
   width: 52px;
   height: 43px;
   -o-object-fit: contain;
-  object-fit: contain;
+     object-fit: contain;
   margin-right: 8px;
 }
 .header-logo__title {
@@ -370,7 +368,7 @@ img {
   text-align: center;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
-  background-clip: text;
+          background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 @media (min-width: 1400px) {
@@ -593,7 +591,7 @@ img {
     height: 100%;
     aspect-ratio: unset;
     -o-object-fit: cover;
-    object-fit: cover;
+       object-fit: cover;
   }
 }
 
@@ -633,7 +631,7 @@ img {
   height: 112px;
   border-radius: 8px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 @media (min-width: 1400px) {
   .latest-event__img {
@@ -712,11 +710,7 @@ img {
 }
 .policy-issue__row {
   --gutter-y: 64px;
-}
-@media (min-width: 768px) {
-  .policy-issue__row {
-    --gutter-x: 24px;
-  }
+  --gutter-x: 24px;
 }
 @media (min-width: 1400px) {
   .policy-issue__row {
@@ -746,7 +740,7 @@ img {
   aspect-ratio: 343/229;
   border-radius: 16px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   width: 100%;
 }
 @media (min-width: 768px) {
@@ -842,7 +836,7 @@ img {
   letter-spacing: 2px;
   background: var(--primary-gradient);
   -webkit-background-clip: text;
-  background-clip: text;
+          background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 @media (min-width: 1400px) {
@@ -1049,4 +1043,4 @@ img {
 }
 .nav__txt {
   color: var(--text-primary);
-} /*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

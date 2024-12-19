@@ -85,8 +85,6 @@
 }
 
 .row {
-  --gutter-x: 24px;
-  --gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--gutter-y));
@@ -98,8 +96,8 @@
     width: 100%;
     max-width: 100%;
     margin-top: var(--gutter-y);
-    padding-left: calc(var(--gutter-x) * 0.5);
-    padding-right: calc(var(--gutter-x) * 0.5);
+    padding-left: calc(var(0.5 * --gutter-x));
+    padding-right: calc(var(0.5 * --gutter-x));
   }
 
   > .col {
